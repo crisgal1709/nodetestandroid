@@ -5,8 +5,12 @@ module.exports = class ModelManager{
      this.model = model;
   }
   
- async  all() {
+ async all() {
    // console.log(this.model)
      return await this.model.findAll();
+  },
+  
+  async byId(id){
+   
   }
 }
