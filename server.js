@@ -20,6 +20,12 @@ router.get('/users', (req, res) => {
    })
 })
 
+router.get('/posts', (req, res) => {
+   res.json({
+      posts: []
+   })
+})
+
 router.get('/', function(req, res){
  res.sendStatus(200)
 })
