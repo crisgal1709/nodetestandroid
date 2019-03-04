@@ -1,23 +1,24 @@
 'use strict'
 
+const SQ = require('sequelize');
 const sequelize = require('../database/')
 
 const User = sequelize.define('user', {
-    id: {
-	type: 'string',
-	primaryKey: true
-    },
-    name: {
-	type: 'string'
-   },
-    email: {
-	type: 'string'
-    },
-    password: {
-	type: 'string'
-   }
+  id: {
+    type: SQ.INTEGER,
+   primaryKey: true
+ },
+ name: {
+   type: SQ.STRING
+ },
+ email: {
+   type: SQ.STRING
+ },
+ password: {
+   type: SQ.STRING
+ }
 }, {
-   timestamps: false
+ timestamps: false
 })
 
 module.exports = User;
