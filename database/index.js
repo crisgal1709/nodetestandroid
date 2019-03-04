@@ -1,7 +1,15 @@
+'use strict'
+
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('prueba', 'root', '', {
-  host: 'localhost',
-  dialect: 'mysql',
+const host = process.env.DB_HOST || 'localhost'
+const db = process.env.DB_DATABASE || 'prueba'
+const username = process.env.DB_USERNAME || 'root'
+const password = process.env.DB_PASSWORD || ''
+const driver = process.env.DB_DRIVER || 'mysql'
+
+const sequelize = new Sequelize(db, username, password, {
+  host: host,
+  dialect: driver,
 
   pool: {
     max: 5,

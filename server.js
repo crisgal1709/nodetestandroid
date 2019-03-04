@@ -1,10 +1,9 @@
 'use strict'
 
+require('dotenv').config()
 const express = require('express')
 const app = express()
 const db = require('./database');
-
-require('dotenv').config()
 
 const port = Number(process.env.PORT || process.env.PROJECT_PORT)
 
