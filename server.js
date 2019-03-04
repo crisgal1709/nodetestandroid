@@ -2,9 +2,12 @@
 
 require('dotenv').config()
 const express = require('express')
-const app = express()
-const db = require('./database');
+var appExpress = express()
+const db = require('./database')
 const path = require('path')
+const configureApp = require('./core/configuration')
+
+const app = configureApp(appExpress);
 
 const port = Number(process.env.PORT | process.env.PROJECT_PORT | 3000)
 
@@ -16,4 +19,4 @@ app.listen(port, () => {
    console.log(`Server Runing in port ${port}`)
 })
 
-app.use('/api/users', require('./routes/user'));
+
