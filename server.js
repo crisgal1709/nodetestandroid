@@ -2,9 +2,11 @@
 
 const express = require('express')
 const app = express()
-const router = express.Router();
+const db = require('./database');
 
-const port = Number(3000)
+require('dotenv').config()
+
+const port = Number(process.env.PORT || process.env.PROJECT_PORT)
 
 app.get('/', (req, res) => {
     res.status(200).send('Hola, Mundo NodeJs - Android') 
@@ -14,20 +16,4 @@ app.listen(port, () => {
    console.log(`Server Runing in port ${port}`)
 })
 
-router.get('/users', (req, res) => {
-   res.json({
-      users: []
-   })
-})
-
-router.get('/posts', (req, res) => {
-   res.json({
-      posts: []
-   })
-})
-
-router.get('/', function(req, res){
- res.sendStatus(200)
-})
-
-app.use('/api', router);
+app.use('/api/users', require('./routes/user'));
