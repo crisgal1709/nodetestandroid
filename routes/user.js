@@ -7,11 +7,10 @@ const User = require('../models/user')
 router.get('/', (req, res) => {
    const md = new modelManager(User);
    var users = md.all();
-   console.log(users)
-	
-   res.json({
-      users: users
-   });
+   users.then(user => {
+     res.json({users: user})
+   })
+   .catch(err => console.log(err))
 })
 
 module.exports = router;

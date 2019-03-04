@@ -5,15 +5,8 @@ module.exports = class ModelManager{
      this.model = model;
   }
   
-  all() {
+ async  all() {
    // console.log(this.model)
-     return this.model.findAll()
-	  .then(users => {
-	    return users;
-	  })
-	  .catch(err => {
-	    console.log(err)
-	    return [];
-	  })
+     return await this.model.findAll();
   }
 }
