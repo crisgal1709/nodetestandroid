@@ -8,9 +8,9 @@ module.exports = class ModelManager{
  async all() {
    // console.log(this.model)
      return await this.model.findAll();
-  },
+  }
   
   async byId(id){
-   
+   return await this.model.findById(id);
   }
 }
