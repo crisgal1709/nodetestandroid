@@ -24,6 +24,8 @@ const sequelize = new Sequelize(db, username, password, {
 
 sequelize.authenticate()
    .then()
-   .catch()
+   .catch(err => {
+     console.log(err.parent)
+   })
 
 module.exports = sequelize;
