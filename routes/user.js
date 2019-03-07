@@ -32,7 +32,20 @@ router.get('/:id', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-	res.sendStatus(200);
+  var {name, email, password} = req.body;
+
+  var user = md.create({
+     name,
+     email,
+     password
+  }).then((us) => {
+     res.status(200).json({user: us})
+  })
+  .catch(err => {
+    console.log(err.parent)
+    res.status(500).json({message: "an error ocurred"})
+  })
+  
 })
 
 module.exports = router;
